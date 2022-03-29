@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { menuData } from '../data/MenuData'
 import { Button } from './Button'
 import { FaBars } from 'react-icons/fa'
+
+
 
 const Nav = styled.nav`
     height: 60px;
@@ -13,7 +15,7 @@ const Nav = styled.nav`
     z-index: 100;
     position: fixed;
     width: 100%;
-    ${'' /* background: #000; */}
+    background: ${({ navBar }) => (navBar ? '#cd853f' : '')};
 `
 const NavLink = css`
     color: #fff;
@@ -69,8 +71,20 @@ const NavBtn = styled.div`
 `;
 
 const Navbar = ({toggle}) => {
+    const [navBar, setNavBar] = useState(false)
+
+    const changeBackground = () => {
+        if(window.scrollY  >= 80) {
+            setNavBar(true)
+        }else{
+            setNavBar(false)
+        }
+    } 
+
+    window.addEventListener('scroll', changeBackground);
+
   return (
-    <Nav>
+    <Nav navBar={navBar}>
     <Logo to='/'>WeRent</Logo>
     <MenuBars onClick={toggle}/>
     <NavMenu>

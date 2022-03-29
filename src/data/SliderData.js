@@ -1,6 +1,6 @@
-import ImageOne from '../images/house 0.png'
+import ImageOne from '../images/house 6.png'
 import ImageTwo from '../images/house 1.png'
-import ImageThree from '../images/house 2.png'
+import ImageThree from '../images/house 3.png'
 import ImageFour from '../images/house3.png'
 import ImageFive from '../images/house 4.png'
 
