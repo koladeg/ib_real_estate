@@ -35,13 +35,13 @@ const ColumnLeft = styled.section`
 `;
 const ColumnRight = styled.section`
     padding: 1rem 2rem;
-    order: ${({reverse}) => (reverse ? '1' : '2')};
+    order: ${({reverse}) => (reverse ? '0' : '1')};
     display: flex;
     justify-content: center;
     align-items: center;
 
     @media screen and (max-width: 768px) {
-        order: ${({ reverse }) => (reverse ? '2' : '1')};
+        order: ${({ reverse }) => (reverse ? '0' : '1')};
     }
 
     img {

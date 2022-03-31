@@ -1,8 +1,8 @@
-import ImageOne from '../images/house 6.png'
-import ImageTwo from '../images/house 1.png'
+import ImageOne from '../images/house 4.jpeg'
+import ImageTwo from '../images/house 1.jpeg'
 import ImageThree from '../images/house 3.png'
 import ImageFour from '../images/house3.png'
-import ImageFive from '../images/house 4.png'
+
 
 export const SliderData = [
     {
