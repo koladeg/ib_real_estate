@@ -60,7 +60,7 @@ function Footer(props) {
             <FooterWrap>
                 <SocialMedia>
                     <SocialMediaWrap>
-                        <SocialLogo to='/'>WeRent</SocialLogo>
+                        <SocialLogo to='/'>Timbrel global ventures LTD</SocialLogo>
                         <SocialIcons>
                             <SocialIconLink 
                                 href='/' 

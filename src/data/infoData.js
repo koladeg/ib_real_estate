@@ -6,7 +6,7 @@ import ImageFour from '../images/house 8.png'
 export const InfoData = {
     heading: 'Explore our beautiful homes',
     paragraphOne: "The company's vision is to make a revolutionary change in the overall appearance of Nigerian homes, focused on achieving accuracy,  eliminating imperfections in the inward and outward details of a building.",
-    paragraphTwo: "We understand that clients want the cheaper option to build from scratch and get exactly what they want in a well-organized and safe manner. ib_real_estate provides the solution to those problems. Contact us today to have that home built.",
+    paragraphTwo: "We understand that clients want the cheaper option to build from scratch and get exactly what they want in a well-organized and safe manner. Timbrel global ventures LTD provides the solution to those problems. Contact us today to have that home built.",
     buttonLabel: "View Homes",
     image: ImageOne,
     reverse: false,

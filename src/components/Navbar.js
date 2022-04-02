@@ -85,7 +85,7 @@ const Navbar = ({toggle}) => {
 
   return (
     <Nav navBar={navBar}>
-    <Logo to='/'>WeRent</Logo>
+    <Logo to='/'>Timbrel global ventures LTD</Logo>
     <MenuBars onClick={toggle}/>
     <NavMenu>
         {menuData.map((item, index) => (

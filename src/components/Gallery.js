@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from './Button';
+import { motion } from 'framer-motion';
 
 const Container =styled.div`
     width: 100vw;
@@ -15,7 +16,7 @@ const Content =styled.div`
     justify-content: center;
     margin: 0 auto;
 `
-const RentCard =styled.div`
+const RentCard =styled(motion.div)`
     margin: 0 2rem;
     line-height: 2;
     width: 300px;
@@ -51,6 +52,10 @@ const RentPrice =styled.p`
     margin-bottom: 1rem;
     font-size: 1.5rem;
 `
+const fade = {
+    hidden: {opacity: 0},
+    visible: {opacity: 1}
+}
 
 function Gallery(props) {
     return (
@@ -58,7 +63,15 @@ function Gallery(props) {
         <RentHead to='/'>{props.header}</RentHead>
         <Content>
             {props.rentData.map((item, index) => (
-                <RentCard to={item.link} key={index}>
+                <RentCard 
+                    to={item.link} 
+                    key={index}
+                    variants={fade} 
+                    initial='hidden' 
+                    whileInView='visible' 
+                    viewport={{ once: true }} 
+                    transition={{ duration: 2 }}
+                >
                     <RentImg src={item.image} alt ={item.alt} />
                     <RentInfo>
                         <RentTitle>{item.type}</RentTitle>

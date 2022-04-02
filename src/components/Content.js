@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from './Button';
+import { motion } from 'framer-motion';
+
 
 const Section = styled.section`
     width: 100%;
@@ -51,6 +53,11 @@ const ColumnRight = styled.section`
     }
 `;
 
+const fadeIn = {
+    hidden: {opacity: 0, y: -100, scale: 1.1},
+    visible: {opacity: 1, y: 0, scale: 1}
+}
+
 function Content(props) {
     return (
         <Section>
@@ -62,7 +69,7 @@ function Content(props) {
                 <Button to="/homes" primary={true}>{props.buttonLabel}</Button>
                 </ColumnLeft>
                 <ColumnRight reverse={props.reverse}>
-                <img src={props.image} alt="home" />
+                <motion.img  variants={fadeIn} initial='hidden' transition={{ duration: 2 }} whileInView='visible' viewport={{ once: true }} src={props.image} alt="home" />
                 </ColumnRight>
             </Container>
         </Section>

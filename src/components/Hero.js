@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { Button } from './Button';
 import { IoMdArrowRoundForward } from 'react-icons/io'
 import { IoArrowForward, IoArrowBack } from 'react-icons/io5'
+import { motion } from 'framer-motion';
 
 const HeroSection = styled.section`
     height: 100vh;
@@ -127,18 +128,20 @@ function Hero({ slides }) {
     const length = slides.length
     const timeout = useRef(null)
 
-    // useEffect(() => {
-    //     const nextSlide = () => {
-    //         setCurrent(current => (current === length - 1 ? 0 : current + 1))
-    //     }
-    //     timeout.current = setTimeout(nextSlide, 3000)
+    // comment out to stop autoslide
 
-    //     return function () {
-    //         if(timeout.current) {
-    //             clearTimeout(timeout.current)
-    //         }            
-    //     }
-    // }, [current, length])
+    useEffect(() => {
+        const nextSlide = () => {
+            setCurrent(current => (current === length - 1 ? 0 : current + 1))
+        }
+        timeout.current = setTimeout(nextSlide, 5000)
+
+        return function () {
+            if(timeout.current) {
+                clearTimeout(timeout.current)
+            }            
+        }
+    }, [current, length])
 
     const nextSlide = () => {
         setCurrent( current === length - 1 ? 0 : current + 1)
@@ -158,6 +161,12 @@ function Hero({ slides }) {
         return null
     }
 
+    const fadeDown = {
+        hidden: {opacity: 0, y: -50},
+        hidden2: {opacity: 0, y: -80},
+        visible: {opacity: 1, y: 0}
+    }
+
 
   return (
     <HeroSection>
@@ -169,12 +178,30 @@ function Hero({ slides }) {
                             <HeroSlider>
                                 <HeroImage src={slide.image} alt={slide.alt} />
                                 <HeroContent>
-                                    <h1>{slide.title}</h1>
-                                    <p>{slide.price}</p>
-                                    <Button to={slide.path} primary="true"
-                                    css={`
-                                        max-width: 160px;
-                                    `}
+                                    <motion.h1
+                                        variants={fadeDown}
+                                        initial='hidden'
+                                        animate='visible'
+                                        transition={{ duration: 1 }}
+                                    >
+                                        {slide.title}
+                                    </motion.h1>
+                                    <motion.p
+                                        variants={fadeDown}
+                                        initial='hidden2'
+                                        animate='visible'
+                                        transition={{ duration: 1 }}
+                                    >
+                                        {slide.price}
+                                    </motion.p>
+                                    <Button 
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        to={slide.path} 
+                                        primary="true"
+                                        css={`
+                                            max-width: 160px;
+                                        `}
                                     >
                                         {slide.label}
                                         <Arrow />
